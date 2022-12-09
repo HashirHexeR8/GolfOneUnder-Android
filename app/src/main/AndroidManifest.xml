@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.golfApp.golfOneUnder">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<!--    <uses-permission android:name="android.permission.BLUETOOTH"/>-->
+<!--    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>-->
+<!--    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />-->
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- Needed only if your app looks for Bluetooth devices.
+             If your app doesn't use Bluetooth scan results to derive physical
+             location information, you can strongly assert that your app
+             doesn't derive physical location. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <!-- Needed only if your app makes the device discoverable to Bluetooth
+      devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <!-- Needed only if your app communicates with already-paired Bluetooth
+           devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!--bibo01 : hardware option-->
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GolfOneUnder"
+        android:name=".OneFinderApplication">
+
+        <meta-data
+            android:name="com.nutspace.nut.api.openId"
+            android:value="7881bfd1eea8a6a2871278d36dcc01b9"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAYWB-QrNeAbLzd68hSZF0HZ_FMxCIxI0o" />
+
+
+        <activity
+            android:name=".onboarding.activities.SignInActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".onboarding.activities.SignUpActivity"
+            android:exported="true">
+
+        </activity>
+
+        <activity
+            android:name=".home.activities.DiscoverDevicesActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".home.activities.DeviceDisconnectedActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".home.activities.DeviceConnectedActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".home.activities.NotificationsActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".home.activities.HomeActivity"
+            android:exported="true">
+
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        
+        <service android:name="com.nutspace.nut.api.ble.BleService"
+            android:enabled="true"
+            android:exported="false"
+            android:isolatedProcess="false"
+            android:label="nutspace"/>
+    </application>
+
+</manifest>
